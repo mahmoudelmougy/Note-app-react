@@ -6,6 +6,7 @@ import Register from "./components/Register/Register.jsx";
 import UserContextProvider from "./Context/UserContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 import NoteContextProvider from "./Context/NoteContext.jsx";
+import NotFound from "./components/NotFound/NotFound.jsx";
 
 function App() {
   const theme = "dark";
@@ -28,6 +29,7 @@ function App() {
 
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <Register /> },
+    { path: "*", element: <NotFound /> },
   ]);
   return (
     <>
