@@ -5,7 +5,7 @@ import { UserContext } from "../../Context/UserContext.jsx";
 import { showAddModal } from "../../utils/Note.js";
 import { NoteContext } from "../../Context/NoteContext.jsx";
 
-export default function Sidebar() {
+export default function Sidebar({setisMinimized , isMinimized}) {
   const { logOut, token } = useContext(UserContext);
   const { setNotes } = useContext(NoteContext);
   return (
@@ -16,30 +16,31 @@ export default function Sidebar() {
           onClick={() => showAddModal({ updater: setNotes, token })}
         >
           <i className="fa-solid fa-plus me-2"></i>
-          New Note
+          {isMinimized?'':'New Note'}
         </button>
         <ul className="list-unstyled">
           <li>
             <NavLink to="/">
               <i className="bi bi-house-heart me-2"></i>
-              Home
+              {isMinimized?'':'Home'} 
             </NavLink>
           </li>
           <li>
             <NavLink to="/search">
-              <i className="bi bi-search me-2"></i> Search
+              <i className="bi bi-search me-2"></i>
+              {isMinimized?'':'Search'} 
             </NavLink>
           </li>
           <li onClick={logOut}>
             <span className="pointer">
               <i className="bi bi-box-arrow-left me-2"></i>
-              Log Out
+              {isMinimized?'':'Log Out'} 
             </span>
           </li>
           <li></li>
         </ul>
-        <div className={`${style.change} shadow pointer`}>
-          <i className={`fa-solid fa-chevron-right `}></i>
+        <div onClick={()=>{setisMinimized(!isMinimized)}} className={`${style.change} shadow pointer`}>
+          <i className={isMinimized?`fa-solid fa-chevron-right `:`fa-solid fa-chevron-left `}></i>
         </div>
       </nav>
     </>

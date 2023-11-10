@@ -6,12 +6,13 @@
   --column: 2;
   width: calc(100% * var(--column) / var(--layout));
   min-width: 250px;
-  transition: width 200ms;
+  transition-duration: 400ms;
 }
 
 .sidebar-mini {
   width: 70px;
-  transition: width 350ms;
+  min-width: 70px;
+  transition-duration: 400ms;
 }
 
 .sidebar-mini i {
