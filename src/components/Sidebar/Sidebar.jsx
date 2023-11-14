@@ -25,12 +25,6 @@ export default function Sidebar({setisMinimized , isMinimized}) {
               {isMinimized?'':'Home'} 
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/search">
-              <i className="bi bi-search me-2"></i>
-              {isMinimized?'':'Search'} 
-            </NavLink>
-          </li>
           <li onClick={logOut}>
             <span className="pointer">
               <i className="bi bi-box-arrow-left me-2"></i>

@@ -9,27 +9,17 @@ import NoteContextProvider from "./Context/NoteContext.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 
 function App() {
-  const theme = "dark";
-  // prop drilling
   const routes = createHashRouter([
     {
-      path: "",
-      element: (
-        <ProtectedRoute>
-          <Layout />
-        </ProtectedRoute>
-      ),
+      path: "",element: (<ProtectedRoute><Layout /></ProtectedRoute>),
       children: [
-        {
-          index: true,
-          element: <Home />,
-        },
+        {index: true, element: <Home />},
+        { path: "*", element: <NotFound /> },
       ],
     },
 
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <Register /> },
-    { path: "*", element: <NotFound /> },
   ]);
   return (
     <>
